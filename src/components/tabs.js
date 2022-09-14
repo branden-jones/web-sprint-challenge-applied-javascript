@@ -1,4 +1,6 @@
 
+// import { traverse } from "@babel/core";
+import axios from "axios";
 // TASK 3
   // ---------------------
   // Implement this function which takes an array of strings ("topics") as its only argument.
@@ -14,10 +16,7 @@
   // </div>
   //
 
-import { traverse } from "@babel/core";
-import axios from "axios";
 
-// const topics = ['javascript', 'bootstrap', 'technology'];
 const Tabs = (topics) => {
   const tabContainer = document.createElement('div');
   tabContainer.classList.add('topics');
@@ -35,9 +34,9 @@ const Tabs = (topics) => {
 const tabsAppender = (selector) => {
   axios.get('http://localhost:5001/api/topics')
   .then(res => {
-    console.log(res);
+    // console.log(res);
     const tabs = res.data.topics;
-    console.log(tabs);
+    // console.log(tabs);
     const container = document.querySelector(selector);
     container.appendChild(Tabs(tabs));
     })
